@@ -14,26 +14,7 @@ class ToDoTableViewController: UITableViewController {
     
     var tasks = [ToDoList]()
     
-    
-//    func getDataFromRealm() {
-//       
-//        let realm = try! Realm()
-//
-//        let data = realm.objects(ToDoList.self)
-//
-//
-//        for todo in data {
-//
-//            tasks.append(todo.realmTasks)
-//
-//        }
-//
-//
-//
-//
-//    }
-//
-    
+   
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +31,7 @@ class ToDoTableViewController: UITableViewController {
         
         let realm = try! Realm()
         let tasksss = realm.objects(ToDoList.self)
-        
+       
         
         self.tasks = Array(tasksss)
         self.tableView.reloadData()
@@ -98,15 +79,23 @@ class ToDoTableViewController: UITableViewController {
             action.backgroundColor = .red
         }
         
-//        let realm = try! Realm()
-//        
-//        realm.delete(<#T##object: Object##Object#>)
-//        
+        let realm = try! Realm()
+  
+        let tasksss = Array(realm.objects(ToDoList.self))
+        
+       
+        
+        try! realm.write {
+            
+            realm.delete(tasksss[indexPath.row])
+            
+        }
+    
         
         return UISwipeActionsConfiguration(actions: [action])
     }
     
 
 
-
+  
 }
