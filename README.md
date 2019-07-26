@@ -2,4 +2,4 @@
 a to-do App that uses realm.
 
 
-<img src="ezgif.com-video-to-gif.mov">
+<img src="ezgif.com-video-to-gif (1).gif">
